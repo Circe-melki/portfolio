@@ -9,9 +9,7 @@
     font-family: Poppins,sans-serif;
 }
 
-body{ 
-    background-color: rgb(49, 48, 48);
-}
+
 a{
     color: white;
     text-decoration: none;
@@ -21,7 +19,7 @@ a{
     left: 0;
     top: 0;
     width:100%;
-   
+   padding: 25px 5%;
     display: flex;
     justify-content:space-between ;
     align-items: center;
@@ -29,8 +27,9 @@ a{
 }
 
 .logo{
-    font-size: 30px;
-    font-weight: 600;
+  
+    font-size: 33px;
+    font-weight: 700;
     margin-right: 15px;
 }
 
@@ -62,17 +61,58 @@ a{
     height: 100vh;
     padding: 60px 9% 0;
     color: white;
+    opacity: 0;
+    animation:  show-content 1.25s 1s ease-in-out forwards  ;
+    gap: 50px;
 }
 .home-info h1{
     font-size: 50px;
 }
 .home-info h2{
+    position: relative;
     font-size: 32px;
     margin-top: -10px;
+  
 }
 .home-info p{
     font-size: 17px;
     margin: 10px 0 25px;
+}
+.home-info h2 .text-container {
+    position: relative; 
+    display: inline-block; 
+}
+
+.home-info h2 span {
+    position:absolute;
+     
+    top: 0;
+    left: 5ch;
+    display: block;
+    color: transparent;
+    -webkit-text-stroke: 0.7px rgb(236, 76, 27);
+    animation: show-text 12s linear infinite;
+    animation-delay: calc(-4s * var(--i)); 
+}
+.home-info h2 span::before {
+    position: absolute;
+    content: attr(data-text); 
+    
+    width: 0;
+   
+    color:  rgb(236, 76, 27); 
+    white-space: nowrap; 
+    overflow: hidden;
+    animation: fill-text 4s linear infinite;
+}
+@keyframes fill-text {
+    10%,100%{
+        width: 0;
+    }
+    70%,90%{
+        width: 100%;
+    }
+    
 }
 .home-info .scials{
     display: flex;
@@ -114,9 +154,10 @@ a{
 
 .home-image .img-box {
     position: relative;
-    width: 32vw;
-    height: 32vw;
-    margin-left: 50px;
+    width: 22.5vw;
+    height: 23vw;
+   
+    
     
     border-radius: 50%;
     padding: 5px;
@@ -124,15 +165,9 @@ a{
     
    
 }
-.home-image .img-box::before,
-.home-image .img-box::after{
-    content: '';
-    position: absolute;
-    width: 500px;
-    height: 500px;
-    background: conic-gradient(transparent, transparent,transparent,rgb(165, 38, 38));
 
-}
+
+
 
 .home-image .img-box .img-item{
     position: relative;
@@ -141,15 +176,61 @@ a{
     border-radius: 50%;
     overflow: hidden;
    
+   
     
 }
 .home-image .img-box .img-item img{
-    width: 32vw;
-    height: 32vw;
+    width: 21.5vw;
+   
+    height: 21.5vw;
    position: absolute;
     object-fit: cover;
-  
+
     border-radius: 50%;
   
   
+}
+/* Animation */
+.bars-animation{
+    position: absolute;
+    width: 105%;
+    height: 100%;
+    display: flex;
+    z-index: -1;
+}
+.bars-animation .bar{
+   
+    width: 100%;
+    height: 100%;
+    
+    
+    transform: translateY(-100%);
+    animation:  bars-background .75s ease-in-out forwards ;
+    animation-delay:calc(.1s *var(--i)) ;
+}
+@keyframes bars-background {
+    100%{
+        transform: translateY(0%);
+        background-color: rgb(49, 48, 48);
+    }
+    
+}
+@keyframes show-content {
+    100%{
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+
+
+@keyframes show-text {
+    0%, 25% {
+        
+        visibility: visible;
+    }
+     25%,100% {
+        
+        visibility: hidden;
+    }
 }
