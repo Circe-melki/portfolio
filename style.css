@@ -73,7 +73,7 @@ a{
     font-size: 50px;
 }
 .home-info h2{
-    position: relative;
+    
     font-size: 32px;
     margin-top: -10px;
   
@@ -82,32 +82,48 @@ a{
     font-size: 17px;
     margin: 10px 0 25px;
 }
-.home-info h2 .text-container {
-    position: relative; 
-    display: inline-block; 
-}
 
-.home-info h2 span {
-    position:absolute;
-     
-    top: 0;
-    left: 5ch;
-    display: block;
+.home-info h2 span{
+    position: relative;
+    
+    
+    display: inline-block;
     color: transparent;
     -webkit-text-stroke: 0.7px var(--font-color);
-    animation: show-text 12s linear infinite;
-    animation-delay: calc(-4s * var(--i)); 
+    
+   
 }
 .home-info h2 span::before {
     position: absolute;
-    content: attr(data-text); 
+    content: ""; 
     
     width: 0;
-   
+    border-right: 4px solid var(--bg-color);
     color:  var(--font-color); 
     white-space: nowrap; 
     overflow: hidden;
-    animation: fill-text 4s linear infinite;
+    animation:cursor .4s infinite, word 12s infinite,fill-text 4s linear infinite;
+}
+@keyframes cursor {
+    to{
+        border-right: 4px solid var(--font-color);
+    }
+    
+}
+@keyframes word {
+    0%,33%{
+    content: "Frontend Developer";
+    
+    }
+    34%,66%{
+        content: "Backend Devoloper";
+        
+        }
+    67%,99%{
+        content: "Student";
+        
+        }
+
 }
 @keyframes fill-text {
     10%,100%{
@@ -228,13 +244,3 @@ a{
 
 
 
-@keyframes show-text {
-    0%, 25% {
-        
-        visibility: visible;
-    }
-     25%,100% {
-        
-        visibility: hidden;
-    }
-}
