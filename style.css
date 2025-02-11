@@ -13,6 +13,10 @@
     font-family: Poppins,sans-serif;
 }
 
+body{ 
+    color: white;
+    animation: fill-backgrond 0.5s 1s forwards;
+}
 
 a{
     color: white;
@@ -23,11 +27,12 @@ a{
     left: 0;
     top: 0;
     width:100%;
-   padding: 25px 5%;
+   padding: 5px 5%;
     display: flex;
     justify-content:space-between ;
     align-items: center;
     z-index: 100;
+    animation: fill-backgrond 0.5s 1s forwards;
 }
 
 .logo{
@@ -228,6 +233,25 @@ a{
     animation:  bars-background .75s ease-in-out forwards ;
     animation-delay:calc(.1s *var(--i)) ;
 }
+
+/* education section */
+#Education{
+    padding: 100px, 15px;
+}
+.heading{
+    font-size: 4rem;
+    text-align: center;
+    margin: 5rem 0;
+}
+
+.timelineItems{
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+}
+
 @keyframes bars-background {
     100%{
         transform: translateY(0%);
@@ -237,5 +261,13 @@ a{
 }
 
 
-
-
+@keyframes show-content {
+    100%{
+        opacity: 1;
+    }
+}
+@keyframes fill-backgrond {
+    100%{
+        background-color: var(--bg-color);
+    }
+}
