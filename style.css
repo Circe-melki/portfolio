@@ -4,9 +4,12 @@
 }
 :root{
     --bg-color:rgb(49, 48, 48);
+    --darker-bg-color:rgb(41, 41, 41);
     --font-color:rgb(236, 76, 27);
 }
 *{
+    scrollbar-width: thin;
+    scrollbar-color: var(--font-color) var(--bg-color);
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -109,36 +112,7 @@ a{
     overflow: hidden;
     animation:cursor .4s infinite, word 12s infinite,fill-text 4s linear infinite;
 }
-@keyframes cursor {
-    to{
-        border-right: 4px solid var(--font-color);
-    }
-    
-}
-@keyframes word {
-    0%,33%{
-    content: "Frontend Developer";
-    
-    }
-    34%,66%{
-        content: "Backend Devoloper";
-        
-        }
-    67%,99%{
-        content: "Student";
-        
-        }
 
-}
-@keyframes fill-text {
-    10%,100%{
-        width: 0;
-    }
-    70%,90%{
-        width: 100%;
-    }
-    
-}
 .home-info .scials{
     display: flex;
     align-items: center;
@@ -236,7 +210,7 @@ a{
 
 
 #Education{
-    padding: 100px, 15px;
+    padding: 10px, 15px;
 }
 .heading{
     font-size: 4rem;
@@ -245,17 +219,112 @@ a{
 }
 
 .timelineItems{
+    
     max-width: 1200px;
     margin: auto;
+    margin: 5px;
     display: flex;
     flex-wrap: wrap;
     position: relative;
 }
+.imelineItems ::before{
+    content: "";
+    position: absolute;
+    width: 5px;
+    height: 100%;
+    background-color: var(--font-color);
+    left: calc(50% - 1px);
+}
+.timelineItem{
+    margin-bottom: 40px;
+    width: 100%;
+    position: relative;
+}
+.timelineItem :last-child{
+    margin-bottom: 0;
+}
+.timelineItem:nth-child(odd){
+    padding-right: calc(51% + 8px);
+    text-align: right;
+}
+.timelineItem:nth-child(even){
+    padding-left: calc(51% + 8px);
+    
+}
+
+.timeline-dot{
+    
+    height: 21px;
+    width: 21px;
+    background-color: var(--font-color);
+    box-shadow: 0 0 25px var(--font-color),
+                0 0 50px var(--font-color);
+    border-radius: 50%;
+    position: absolute;
+    top:10px;
+    left: calc(50% - 8px);
+}
+.timelinedate{
+    font-size: 20px;
+    font-weight: 800;
+    margin: 6px 0 15px;
+
+}
+.timeline-content{
+    background-color: var(--darker-bg-color);
+    border: 3px solid var(--font-color);
+    padding: 30px 50px;
+    border-radius: 4rem;
+    box-shadow:0 0 10px var(--font-color) ;
+    cursor: pointer;
+    transition: 0.3 ,ease-in-out;
+}
+.timeline-content:hover{
+    transform: scale(1.05);
+    box-shadow: 0 0 25px var(--font-color),
+}
+.timeline-content    H3{
+    font-size: 20px;
+    font-weight: 500;
+    margin:  0 0 10px;
+    
+}
+.timeline-content P{ 
+    font-weight: 300;
+    line-height: 22px;
+    text-align: left;
+}
+
+
+#services h2{
+    margin-bottom: 5rem;
+    font-size: 4rem;
+    text-align: center;
+}
+.Services-container {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    color: black;
+    align-items: center;
+    gap: 2.5rem;
+}
+.service{
+    background-color: var(--font-color);
+    height: 300px;
+    border: 5px solid transparent;
+    border-radius: 3rem;
+    padding-left:1rem ;
+   
+}
+
+ 
+/* animation */
 
 @keyframes bars-background {
     100%{
         transform: translateY(0%);
         background-color: var(--bg-color);
+        
     }
     
 }
@@ -271,4 +340,36 @@ a{
         background-color: var(--bg-color);
     }
 }
-/* try this */
+
+@keyframes cursor {
+    to{
+        border-right: 4px solid var(--font-color);
+    }
+    
+}
+@keyframes word {
+    0%,33%{
+    content: "Frontend Developer";
+    
+    }
+    34%,66%{
+        content: "Backend Devoloper";
+        
+        }
+    67%,99%{
+        content: "Student";
+        
+        }
+
+}
+@keyframes fill-text {
+    10%,100%{
+        width: 0;
+    }
+    70%,90%{
+        width: 100%;
+    }
+    
+}
+
+
